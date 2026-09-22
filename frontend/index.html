@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090a0c">
+<title>DayMate</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div id="login" class="login-screen">
+  <div class="brand">D</div>
+  <p class="eyebrow">PERSONAL MEMORY ASSISTANT</p>
+  <h1>Don't keep it<br>in your head.</h1>
+  <p class="muted">Talk naturally. DayMate remembers what matters.</p>
+  <form id="loginForm" class="card login-card">
+    <input id="username" placeholder="Username" autocomplete="username" required>
+    <input id="password" type="password" placeholder="Password" autocomplete="current-password" required>
+    <button class="primary" type="submit">Unlock DayMate</button>
+    <div id="loginError" class="error"></div>
+  </form>
+</div>
+
+<div id="app" class="hidden">
+  <header class="top">
+    <div>
+      <div class="wordmark">DAYMATE</div>
+      <div id="dateLabel" class="muted small"></div>
+    </div>
+    <button id="notifyBtn" class="icon-btn" title="Enable notifications">🔔</button>
+  </header>
+
+  <main>
+    <section id="homePage" class="page">
+      <div class="lock-clock">
+        <div id="clock">--:--</div>
+        <div id="greeting">Good evening</div>
+      </div>
+
+      <div class="glance-grid">
+        <div class="glance card">
+          <span class="dot"></span>
+          <div><strong id="todayCount">0</strong><span class="muted"> tasks today</span></div>
+        </div>
+        <div class="glance card">
+          <span class="dot orange"></span>
+          <div><strong id="importantCount">0</strong><span class="muted"> important soon</span></div>
+        </div>
+      </div>
+
+      <div id="homeItems" class="stack"></div>
+
+      <div class="action-row">
+        <button class="action voice" id="talkBtn"><span>🎙️</span><b>Talk</b><small>Speak naturally</small></button>
+        <button class="action" id="noteBtn"><span>📝</span><b>Tell Later</b><small>Remember to tell</small></button>
+        <button class="action" id="quickBtn"><span>＋</span><b>Quick Note</b><small>Save a thought</small></button>
+      </div>
+    </section>
+
+    <section id="tasksPage" class="page hidden"><div class="page-head"><h2>Tasks</h2><button class="small-btn" onclick="openManual('task')">＋ Add</button></div><div id="tasksList" class="stack"></div></section>
+    <section id="importantPage" class="page hidden"><div class="page-head"><h2>Important</h2><button class="small-btn" onclick="openManual('important')">＋ Add</button></div><div id="importantList" class="stack"></div></section>
+    <section id="tellPage" class="page hidden"><div class="page-head"><h2>Tell Later</h2><button class="small-btn" onclick="openManual('tell')">＋ Add</button></div><div id="tellList" class="stack"></div></section>
+    <section id="inboxPage" class="page hidden"><div class="page-head"><h2>Inbox</h2><button class="small-btn" onclick="openManual('inbox')">＋ Add</button></div><div id="inboxList" class="stack"></div></section>
+  </main>
+
+  <nav class="bottom">
+    <button class="nav active" data-page="homePage">⌂<span>Home</span></button>
+    <button class="nav" data-page="tasksPage">✓<span>Tasks</span></button>
+    <button class="nav" data-page="importantPage">!<span>Important</span></button>
+    <button class="nav" data-page="tellPage">🗣<span>Tell</span></button>
+    <button class="nav" data-page="inboxPage">□<span>Inbox</span></button>
+  </nav>
+</div>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal()">×</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
