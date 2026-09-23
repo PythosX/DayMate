@@ -1,5 +1,7 @@
 # DayMate — Personal Memory Assistant
 
+# https://daymate-iqfw.onrender.com
+
 DayMate is a voice-first personal memory assistant designed to stay open on a spare phone.
 
 It separates:
